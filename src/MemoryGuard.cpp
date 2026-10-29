@@ -39,9 +39,9 @@ constexpr int kMalloptPurgeAll = -104; /* M_PURGE_ALL  (Android 14+) */
 /* Tunables */
 constexpr auto kStartupDelay = 30s;     /* let the world finish loading     */
 constexpr auto kPollInterval = 5s;      /* how often MemAvailable is read   */
-constexpr auto kPurgeCooldown = 30s;    /* minimum gap between purges       */
+constexpr auto kPurgeCooldown = 20s;    /* minimum gap between purges       */
 constexpr auto kFallbackInterval = 90s; /* if /proc/meminfo is unreadable   */
-constexpr long kPercentOfTotal = 15;    /* threshold = 15% of MemTotal ...  */
+constexpr long kPercentOfTotal = 30;    /* threshold = 30% of MemTotal ...  */
 constexpr long kMinThresholdKb = 600L * 1024;  /* ... but at least 600 MB   */
 constexpr long kMaxThresholdKb = 1536L * 1024; /* ... and at most 1.5 GB    */
 
