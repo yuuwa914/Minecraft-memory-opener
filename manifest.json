@@ -1,6 +1,6 @@
 {
   "type": "preload-native",
-  "name": "MemoryGuard",
+  "name": "Memory-opener",
   "author": "yuuwa914",
   "description": "Releases allocator-cached free memory when device memory runs low. Version independent, no game hooks.",
   "version": "1.0.0",
