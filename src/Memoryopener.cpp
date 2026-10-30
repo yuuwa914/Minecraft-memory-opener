@@ -30,7 +30,7 @@ namespace {
 
 using namespace std::chrono_literals;
 
-constexpr const char *kTag = "Memoryopener";
+constexpr const char *kTag = "MemoryGuard";
 
 /* bionic malloc.h option values (resolved via dlsym so no API-level needed) */
 constexpr int kMalloptPurge = -101;    /* M_PURGE      */
@@ -39,10 +39,10 @@ constexpr int kMalloptPurgeAll = -104; /* M_PURGE_ALL  (Android 14+) */
 /* Tunables */
 constexpr auto kStartupDelay = 30s;     /* let the world finish loading     */
 constexpr auto kPollInterval = 5s;      /* how often MemAvailable is read   */
-constexpr auto kPurgeCooldown = 20s;    /* minimum gap between purges       */
+constexpr auto kPurgeCooldown = 30s;    /* minimum gap between purges       */
 constexpr auto kFallbackInterval = 90s; /* if /proc/meminfo is unreadable   */
-constexpr long kPercentOfTotal = 40;    /* threshold = 40% of MemTotal ...  */
-constexpr long kMinThresholdKb = 900L * 1024;  /* ... but at least 900 MB   */
+constexpr long kPercentOfTotal = 15;    /* threshold = 15% of MemTotal ...  */
+constexpr long kMinThresholdKb = 800L * 1024;  /* ... but at least 800 MB   */
 constexpr long kMaxThresholdKb = 1536L * 1024; /* ... and at most 1.5 GB    */
 
 struct MemInfo {
@@ -159,7 +159,7 @@ Guard gGuard;
 
 } // namespace
 
-class MemoryopenerMod {
+class MemoryGuardMod {
 public:
     bool load() { return true; }
     bool enable() {
@@ -177,5 +177,5 @@ public:
     }
 };
 
-static MemoryopenerMod mod;
-PL_REGISTER_MOD(MemoryopenerMod, mod)
+static MemoryGuardMod mod;
+PL_REGISTER_MOD(MemoryGuardMod, mod)
