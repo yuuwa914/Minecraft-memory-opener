@@ -14,9 +14,9 @@ FetchContent_MakeAvailable(preloader_android)
 
 find_library(LOG_LIB log)
 
-add_library(MemoryGuard SHARED src/MemoryGuard.cpp)
-target_compile_options(MemoryGuard PRIVATE
+add_library(MemoryGuard SHARED src/Memory-opener.cpp)
+target_compile_options(Memory-opener PRIVATE
     -O2 -fvisibility=hidden -fvisibility-inlines-hidden
     -ffunction-sections -fdata-sections)
-target_link_options(MemoryGuard PRIVATE -Wl,--gc-sections)
-target_link_libraries(MemoryGuard PRIVATE preloader ${LOG_LIB})
+target_link_options(Memory-opener PRIVATE -Wl,--gc-sections)
+target_link_libraries(Memory-opener PRIVATE preloader ${LOG_LIB})
