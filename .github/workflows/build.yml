@@ -17,13 +17,13 @@ jobs:
         run: cmake --build build -j
       - name: Package .levipack
         run: |
-          SO="$(find build -name libMemoryopener.so | head -n1)"
+          SO="$(find build -name libMemoryGuard.so | head -n1)"
           test -n "$SO"
           mkdir -p dist/pkg
-          cp "$SO" dist/pkg/libMemoryopener.so
+          cp "$SO" dist/pkg/libMemoryGuard.so
           cp manifest.json dist/pkg/
-          (cd dist/pkg && zip -X ../Memoryopener.levipack manifest.json libMemoryGuard.so)
+          (cd dist/pkg && zip -X ../MemoryGuard.levipack manifest.json libMemoryGuard.so)
       - uses: actions/upload-artifact@v4
         with:
-          name: Memoryopener-levipack
-          path: dist/Memoryopener.levipack
+          name: MemoryGuard-levipack
+          path: dist/MemoryGuard.levipack
