@@ -30,7 +30,7 @@ namespace {
 
 using namespace std::chrono_literals;
 
-constexpr const char *kTag = "Memory-opener";
+constexpr const char *kTag = "Memoryopener";
 
 /* bionic malloc.h option values (resolved via dlsym so no API-level needed) */
 constexpr int kMalloptPurge = -101;    /* M_PURGE      */
@@ -159,7 +159,7 @@ Guard gGuard;
 
 } // namespace
 
-class Memory-openerMod {
+class MemoryopenerMod {
 public:
     bool load() { return true; }
     bool enable() {
@@ -177,5 +177,5 @@ public:
     }
 };
 
-static Memory-openerMod mod;
-PL_REGISTER_MOD(Memory-openerMod, mod)
+static MemoryopenerMod mod;
+PL_REGISTER_MOD(MemoryopenerMod, mod)
