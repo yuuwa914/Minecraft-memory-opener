@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Memory-opener LANGUAGES CXX)
+project(Memoryopener LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,9 +14,9 @@ FetchContent_MakeAvailable(preloader_android)
 
 find_library(LOG_LIB log)
 
-add_library(Memory-opener SHARED src/Memory-opener.cpp)
-target_compile_options(Memory-opener PRIVATE
+add_library(Memoryopener SHARED src/Memoryopener.cpp)
+target_compile_options(Memoryopener PRIVATE
     -O2 -fvisibility=hidden -fvisibility-inlines-hidden
     -ffunction-sections -fdata-sections)
-target_link_options(Memory-opener PRIVATE -Wl,--gc-sections)
-target_link_libraries(Memory-opener PRIVATE preloader ${LOG_LIB})
+target_link_options(Memoryopener PRIVATE -Wl,--gc-sections)
+target_link_libraries(Memoryopener PRIVATE preloader ${LOG_LIB})
