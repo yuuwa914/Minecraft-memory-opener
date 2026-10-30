@@ -25,5 +25,5 @@ jobs:
           (cd dist/pkg && zip -X ../MemoryGuard.levipack manifest.json libMemoryGuard.so)
       - uses: actions/upload-artifact@v4
         with:
-          name: MemoryGuard-levipack
-          path: dist/MemoryGuard.levipack
+          name: Memory-opener-levipack
+          path: dist/Memory-opener.levipack
